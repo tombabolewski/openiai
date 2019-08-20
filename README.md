@@ -1,2 +1,2 @@
 # openiai
-Open IAI API PHP wrapper package
+Open IAI API PHP wrapper library.
