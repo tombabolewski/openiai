@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Tombabolewski\Openiai;
+namespace Tombabolewski\Openiai\Exceptions;
 use Exception;
 
 class ApiException extends Exception

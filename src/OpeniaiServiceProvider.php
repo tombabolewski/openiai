@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class openiaiServiceProvider extends ServiceProvider
+class OpeniaiServiceProvider extends ServiceProvider
 {
     /**
      * Register services.

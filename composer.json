@@ -4,10 +4,10 @@
     "type": "library",
     "support": {
         "source": "https://github.com/tombabolewski/openiai",
-        "issues": "https://github.com/ltombabolewski/openiai/issues"
+        "issues": "https://github.com/tombabolewski/openiai/issues"
     },
     "require": {
-        "php": ">=7.1",
+        "php": ">=7.2",
         "ext-json": "*",
         "laravel/laravel": "5.8",
         "league/csv": "^9.3",
@@ -16,7 +16,7 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Thomas Lucifer Babolewski",
+            "name": "Tomasz Babolewski",
             "email": "spootek@gmail.com"
         }
     ],
@@ -28,7 +28,7 @@
     "extra": {
         "laravel" : {
             "providers": [
-                "Tomabolewski\\Openiai\\Providers\\openiaiServiceProvider"
+                "Tombabolewski\\Openiai\\OpeniaiServiceProvider"
             ]
         }
     }
