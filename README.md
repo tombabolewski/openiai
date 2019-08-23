@@ -6,7 +6,7 @@ This library is yet unfinished. Use it only at your own risk.
 Feel free to contribute.
 
 
-##Summary
+## Summary
 
 Open IAI API PHP wrapper library.
 
@@ -15,13 +15,13 @@ and make requests. It aims to cover the whole API (all gates and methods,
  which are automatically looked for).
                    
 
-##Requirements
+## Requirements
 * PHP 7.2
 * Laravel 5.8
 * ext-json
 * ext-soap
 
-##Installation
+## Installation
 
 Simply use Composer to install this package, either by executing CLI command
 in your project directory:
@@ -44,7 +44,7 @@ Just add the following line to the `providers` array, preferably at the end:
 
 ```php
 'providers' => [
-    (...)
+    // (...)
     Tombabolewski/Openiai/OpeniaiServiceProvider::class,
 ],
 ```
@@ -52,13 +52,13 @@ Just add the following line to the `providers` array, preferably at the end:
 If you would like, you can also add an alias to the `aliases` array like that:
 ```php
 'aliases' => [
-    (...)
+    // (...)
     'Openiai' => Tombabolewski/Openiai/Client::class
 ],
 ```
 
 
-##Usage
+## Usage
 
 Section under construction ;]
 
