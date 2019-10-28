@@ -6,12 +6,22 @@ namespace Tombabolewski\Openiai\Structure;
 
 class ApiVersion
 {
+    /**
+     * @var int $version
+     */
     protected $version;
+    /**
+     * @var array $availableVersions
+     */
     protected $availableVersions;
+    /**
+     * @var ApiGate $gate
+     */
     protected $gate;
 
     /**
      * ApiVersion constructor.
+     *
      * @param $versionSignature
      */
     public function __construct($versionSignature)
@@ -21,15 +31,20 @@ class ApiVersion
 
     /**
      * @param $gateName
+     *
+     * @return ApiGate
      */
-    public function setGate($gateName)
+    public function setGate($gateName): ApiGate
     {
         $this->gate = new ApiGate($gateName);
+
+        return $this->gate;
     }
 
     /**
      * @param $name
      * @param $arguments
+     *
      * @return ApiGate
      */
     public function __call($name, $arguments): ApiGate
@@ -57,5 +72,13 @@ class ApiVersion
         $this->availableVersions = $availableVersions;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGate()
+    {
+        return $this->gate;
     }
 }
