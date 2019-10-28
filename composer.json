@@ -1,35 +1,38 @@
 {
-    "name": "tombabolewski/openiai",
-    "description": "Open IAI API PHP wrapper library",
-    "type": "library",
-    "support": {
-        "source": "https://github.com/tombabolewski/openiai",
-        "issues": "https://github.com/ltombabolewski/openiai/issues"
-    },
-    "require": {
-        "php": ">=7.1",
-        "ext-json": "*",
-        "laravel/laravel": "5.8",
-        "league/csv": "^9.3",
-        "guzzle/http": "^3.9"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Thomas Lucifer Babolewski",
-            "email": "spootek@gmail.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Tombabolewski\\Openiai\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel" : {
-            "providers": [
-                "Tomabolewski\\Openiai\\Providers\\openiaiServiceProvider"
-            ]
-        }
+  "name": "tombabolewski/openiai",
+  "description": "Open IAI API PHP wrapper library",
+  "type": "library",
+  "support": {
+    "source": "https://github.com/tombabolewski/openiai",
+    "issues": "https://github.com/tombabolewski/openiai/issues"
+  },
+  "require": {
+    "php": ">=7.2",
+    "ext-json": "*",
+    "laravel/laravel": "5.8",
+    "league/csv": "^9.3",
+    "guzzle/http": "^3.9"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tomasz Babolewski",
+      "email": "spootek@gmail.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Tombabolewski\\Openiai\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Tombabolewski\\Openiai\\OpeniaiServiceProvider"
+      ],
+      "aliases": {
+        "OpenIAI": "Tombabolewski\\Openiai\\Facade"
+      }
+    }
+  }
 }

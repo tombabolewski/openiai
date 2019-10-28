@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Tombabolewski\Openiai;
+namespace Tombabolewski\Openiai\Response;
 
 
 use Exception;
@@ -53,7 +53,7 @@ class ApiResponse implements \ArrayAccess, \Traversable, \Iterator
         if (!$this->offsetExists($offset)) {
             throw new Exception('Offset does not exist');
         }
-        if ($this->current()->getPage() === $offset) {
+        if ($this->current()->getPage() !== $offset) {
             $this->currentPage = $this->getParentMethod()->exec($offset, $this->requestParams);
         }
         return $this->current();
@@ -114,8 +114,9 @@ class ApiResponse implements \ArrayAccess, \Traversable, \Iterator
     public function next()
     {
         $nextPage = $this->getParentMethod()->getPage() + 1;
-        if (!$this->offsetExists($nextPage))
-        $this->currentPage = $this->getParentMethod()->exec($nextPage, $this->requestParams);
+        if (!$this->offsetExists($nextPage)){
+            $this->currentPage = $this->getParentMethod()->exec($nextPage, $this->requestParams);
+        }
     }
 
     /**
@@ -138,7 +139,8 @@ class ApiResponse implements \ArrayAccess, \Traversable, \Iterator
      */
     public function valid()
     {
-        return isset($this->currentPage) && !is_null($this->currentPage);
+        return isset($this->currentPage)
+            && !is_null($this->currentPage);
     }
 
     /**

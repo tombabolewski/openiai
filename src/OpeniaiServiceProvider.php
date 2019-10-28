@@ -3,8 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Tombabolewski\Openiai\Client;
 
-class openiaiServiceProvider extends ServiceProvider
+class OpeniaiServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -13,7 +14,7 @@ class openiaiServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(__DIR__ . '/config/openiai.php', 'openiai');
     }
 
     /**
@@ -23,6 +24,11 @@ class openiaiServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            __DIR__ . '/config/openiai.php' => config_path('openiai.php'),
+        ]);
+        $this->app->bind('openiai', function ($app) {
+            return new Client();
+        });
     }
 }
