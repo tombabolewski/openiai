@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Tombabolewski\Openiai;
 
 use Illuminate\Support\Facades\Facade as BaseFacade;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Tombabolewski\Openiai;
 
 use Illuminate\Support\ServiceProvider;
 use Tombabolewski\Openiai\Client;

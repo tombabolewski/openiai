@@ -4,12 +4,15 @@
 namespace Tombabolewski\Openiai\Structure;
 
 
-class ApiMethod
+abstract class ApiMethod
 {
     protected $name;
     protected $paramsStructure;
     protected $apiResponse;
-    protected $availableMethods;
+
+    public function __construct()
+    {
+    }
 
     /**
      * @param $page
@@ -22,21 +25,4 @@ class ApiMethod
         //todo: return page
     }
 
-    /**
-     * @param mixed $availableMethods
-     * @return ApiMethod
-     */
-    public function setAvailableMethods($availableMethods)
-    {
-        $this->availableMethods = $availableMethods;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAvailableMethods()
-    {
-        return $this->availableMethods;
-    }
 }

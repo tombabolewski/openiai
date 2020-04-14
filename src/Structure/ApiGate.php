@@ -4,37 +4,30 @@
 namespace Tombabolewski\Openiai\Structure;
 
 
-class ApiGate
+final class ApiGate
 {
-    protected $name;
-    protected $method;
-    protected $availableGates;
+    private $name;
+    private $version;
 
-    /**
-     * ApiGate constructor.
-     * @param $gateName
-     */
-    public function __construct($gateName)
+    public function __construct(int $version, string $name)
     {
-        $this->name = $gateName;
+        $this->version = $version;
+        $this->name = $name;
     }
 
     /**
-     * @param mixed $availableGates
+     * @param $name
+     * @param $arguments
+     *
      * @return ApiGate
+     * @throws \Throwable
      */
-    public function setAvailableGates($availableGates)
+    public function __call($name, $arguments): ApiGate
     {
-        $this->availableGates = $availableGates;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAvailableGates()
-    {
-        return $this->availableGates;
+        /** @var ApiGate $gateClass */
+        $methodClass = ClassMap::getMethodClassName($this->version, $this->name, $name);
+        throw_if($methodClass === null, 'No such gate/method');
+        new $methodClass();
     }
 
 }
